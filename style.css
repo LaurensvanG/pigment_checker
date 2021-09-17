@@ -1,0 +1,114 @@
+h2 {
+  padding: 20px 0px;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+/* Elements */
+.main {
+  height: 100vh;
+  width: clamp(400px, 1200px, 100%);
+  margin-left: 5rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: var(--card-color-background);
+  border-radius: 5px;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  transition: all 500ms;
+}
+
+.large-card {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.basic-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+
+.pigment {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  overflow: hidden;
+  padding: 5px;
+  background: var(--background-color);
+  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
+  border-radius: 5px;
+  transition: all 500ms;
+}
+
+.pigment:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-3px) scale(1.1);
+  background: #fbfbfb;
+}
+
+.pigment-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 2 / 1;
+  /* width: 100%; */
+}
+
+.info-text {
+  display: none;
+  margin: 0em 1em;
+}
+
+.pigment:hover .info-text {
+  display: block;
+}
+
+/* Homepage banner */
+.banner {
+  height: clamp(100px, 400px, 600px);
+  background-image: url(/static/azurite.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  /* .logo {
+    display: none;
+  } */
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  .main {
+    margin: 0;
+  }
+}
