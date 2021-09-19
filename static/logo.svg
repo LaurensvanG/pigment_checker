@@ -1,43 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
   <defs>
     <style>
-      .cls-1 {
-        fill: #1d1d1b;
-      }
-
-      .cls-2 {
-        fill: #fff;
-      }
-
-      .cls-3 {
-        fill: #e30613;
-      }
-
-      .cls-4 {
-        fill: #312783;
-      }
+      .cls-1 {fill: #fff;} .cls-2 {fill: #fcb702;} .cls-3 {fill: #69a6c4;} .cls-4 {fill: #012e73;} .cls-5 {fill: #dd2f19;} .cls-6 {fill: #007e52;} .cls-7 {fill: #a53915;} 
     </style>
   </defs>
   <g id="Layer_2" data-name="Layer 2">
-    <g id="Layer_1-2" data-name="Layer 1">
-      <g>
-        <g id="Board">
-          <rect class="cls-1" x="0.5" y="0.5" width="22" height="22" rx="5.5"/>
-          <path class="cls-2" d="M17,1a5,5,0,0,1,5,5V17a5,5,0,0,1-5,5H6a5,5,0,0,1-5-5V6A5,5,0,0,1,6,1H17m0-1H6A6,6,0,0,0,0,6V17a6,6,0,0,0,6,6H17a6,6,0,0,0,6-6V6a6,6,0,0,0-6-6Z"/>
-        </g>
-        <polygon class="cls-3" points="8 3 8 8 7.99 8 3 3.01 3 3 8 3"/>
-        <rect class="cls-4" x="9" y="3" width="5" height="5"/>
-        <rect class="cls-4" x="15" y="3" width="5" height="5"/>
-        <rect class="cls-3" x="3" y="9" width="5" height="5"/>
-        <polygon class="cls-3" points="14 9 14 14 13.99 14 9 9.01 9 9 14 9"/>
-        <rect class="cls-4" x="15" y="9" width="5" height="5"/>
-        <rect class="cls-3" x="3" y="15" width="5" height="5"/>
-        <rect class="cls-3" x="9" y="15" width="5" height="5"/>
-        <polygon class="cls-3" points="20 15 20 20 19.99 20 15 15.01 15 15 20 15"/>
-        <polygon class="cls-4" points="19.99 20 15 20 15 15.01 19.99 20"/>
-        <polygon class="cls-4" points="13.99 14 9 14 9 9.01 13.99 14"/>
-        <polygon class="cls-4" points="7.99 8 3 8 3 3.01 7.99 8"/>
-      </g>
+    <g id="Board">
+      <rect class="cls-1" width="21" height="21" rx="5"/>
     </g>
+    <polygon class="cls-2" points="7 2 7 7 6.99 7 2 2.01 2 2 7 2"/>
+    <rect class="cls-3" x="8" y="2" width="5" height="5"/>
+    <rect class="cls-4" x="14" y="2" width="5" height="5"/>
+    <rect class="cls-5" x="2" y="8" width="5" height="5"/>
+    <polygon class="cls-2" points="13 8 13 13 12.99 13 8 8.01 8 8 13 8"/>
+    <rect class="cls-6" x="14" y="8" width="5" height="5"/>
+    <rect class="cls-2" x="2" y="14" width="5" height="5"/>
+    <rect class="cls-7" x="8" y="14" width="5" height="5"/>
+    <polygon class="cls-2" points="19 14 19 19 18.99 19 14 14.01 14 14 19 14"/>
+    <polygon class="cls-4" points="18.99 19 14 19 14 14.01 18.99 19"/>
+    <polygon class="cls-4" points="12.99 13 8 13 8 8.01 12.99 13"/>
+    <polygon class="cls-4" points="6.99 7 2 7 2 2.01 6.99 7"/>
   </g>
 </svg>

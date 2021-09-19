@@ -6,91 +6,140 @@
     <title>Pigment checker</title>
     
     <style>
-      @import url("./static/css/utilities.css");
-      @import url("./style.css");
+      @import url("static/css/utilities.css");
+      @import url("static/css/style.css");
       @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
     </style>
+
+    <script src="static/scripts/script.js"></script>
         
   </head>
   <body>
 
     <nav class="navbar">
-      <ul class="navbar-nav">
 
-        <li class="logo">
-          <a href="/" class="nav-link" id="logo-link">
-            <span class="link-text logo-text">Pigment Checker</span>
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 23 23"
-            >
-              <defs>
-                <style>.cls-1{fill:#fff;}.cls-2{fill:#312783;}.cls-3{fill:#e30613;}.cls-4{fill:#312783;}</style>
-              </defs>
-              <g>
-                <rect class="cls-1" x="0.5" y="0.5" width="22" height="22" rx="5.5"/>
-                <path class="cls-2" d="M17,1a5,5,0,0,1,5,5V17a5,5,0,0,1-5,5H6a5,5,0,0,1-5-5V6A5,5,0,0,1,6,1H17m0-1H6A6,6,0,0,0,0,6V17a6,6,0,0,0,6,6H17a6,6,0,0,0,6-6V6a6,6,0,0,0-6-6Z"/>
-                <polygon class="cls-3" points="8 3 8 8 7.99 8 3 3.01 3 3 8 3"/>
-                <rect class="cls-4" x="9" y="3" width="5" height="5"/>
-                <rect class="cls-4" x="15" y="3" width="5" height="5"/>
-                <rect class="cls-3" x="3" y="9" width="5" height="5"/>
-                <polygon class="cls-3" points="14 9 14 14 13.99 14 9 9.01 9 9 14 9"/>
-                <rect class="cls-4" x="15" y="9" width="5" height="5"/>
-                <rect class="cls-3" x="3" y="15" width="5" height="5"/>
-                <rect class="cls-3" x="9" y="15" width="5" height="5"/>
-                <polygon class="cls-3" points="20 15 20 20 19.99 20 15 15.01 15 15 20 15"/>
-                <polygon class="cls-4" points="19.99 20 15 20 15 15.01 19.99 20"/>
-                <polygon class="cls-4" points="13.99 14 9 14 9 9.01 13.99 14"/>
-                <polygon class="cls-4" points="7.99 8 3 8 3 3.01 7.99 8"/>
+      <div class="logo">
+        <a href="/" class="nav-link" id="logo-link">
+          <span class="logo-text">Pigment Checker</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 23 23"
+          >
+            <defs>
+              <style>
+                .cls-1 {fill: #fff;} .cls-2 {fill: #fcb702;} .cls-3 {fill: #69a6c4;} .cls-4 {fill: #012e73;} .cls-5 {fill: #dd2f19;} .cls-6 {fill: #007e52;} .cls-7 {fill: #a53915;} 
+              </style>
+            </defs>
+            <g id="Layer_2" data-name="Layer 2">
+              <g id="Board">
+                <rect class="cls-1" width="21" height="21" rx="5"/>
               </g>
-            </svg>
-          </a>
-        </li>
+              <polygon class="cls-2" points="7 2 7 7 6.99 7 2 2.01 2 2 7 2"/>
+              <rect class="cls-3" x="8" y="2" width="5" height="5"/>
+              <rect class="cls-4" x="14" y="2" width="5" height="5"/>
+              <rect class="cls-5" x="2" y="8" width="5" height="5"/>
+              <polygon class="cls-2" points="13 8 13 13 12.99 13 8 8.01 8 8 13 8"/>
+              <rect class="cls-6" x="14" y="8" width="5" height="5"/>
+              <rect class="cls-2" x="2" y="14" width="5" height="5"/>
+              <rect class="cls-7" x="8" y="14" width="5" height="5"/>
+              <polygon class="cls-2" points="19 14 19 19 18.99 19 14 14.01 14 14 19 14"/>
+              <polygon class="cls-4" points="18.99 19 14 19 14 14.01 18.99 19"/>
+              <polygon class="cls-4" points="12.99 13 8 13 8 8.01 12.99 13"/>
+              <polygon class="cls-4" points="6.99 7 2 7 2 2.01 6.99 7"/>
+            </g>
+          </svg>
+        </a>
+      </div>
 
-        <li class="nav-item">
-          <a href="/bw/" class="nav-link">
-            <span class="link-text">Black & White</span>
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 22 22"
-            >
-              <defs>
-                <style>.cls-1 {fill: #fff;} .cls-2 {fill: #000;}</style>
-              </defs>
-              <g id="Layer_2" data-name="Layer 2">                  
-                <path class="cls-1" d="M18.78,3.22,3.22,18.78A11,11,0,0,1,18.78,3.22Z"/>
-                <path class="cls-2" d="M22,11A11,11,0,0,1,3.22,18.78L18.78,3.22A11,11,0,0,1,22,11Z"/>
-              </g>
-            </svg>
-            
-          </a>
-        </li>
+      <div class="container">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="/bw/" class="nav-link">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 22"
+              >
+                <defs>
+                  <style>.cls-bw-1 {fill: #fff;} .cls-bw-2 {fill: #000;}</style>
+                </defs>
+                <g id="Layer_2" data-name="Layer 2">
+                  <path class="cls-bw-1" d="M18.51,3,3,18.52A11,11,0,0,1,11,0,10.89,10.89,0,0,1,18.51,3Z"/>
+                  <path class="cls-bw-2" d="M22,11A11,11,0,0,1,3,18.52L18.51,3A10.93,10.93,0,0,1,22,11Z"/>
+                </g>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Black & White</div>
+              </div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/blue/" class="nav-link">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 22"
+              >
+                <defs>
+                  <style>.cls-red-1 {fill: #312783;}</style>
+                </defs>
+                <g id="Layer_2" data-name="Layer 2">
+                  <circle class="cls-red-1" cx="11" cy="11" r="11"/>
+                </g>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Blue</div>
+              </div>
+        
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/red/" class="nav-link">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 22"
+              >
+                <defs>
+                  <style>.cls-blue-1 {fill: #e30613;}</style>
+                </defs>
+                <g id="Layer_2" data-name="Layer 2">
+                  <circle class="cls-blue-1" cx="11" cy="11" r="11"/>
+                </g>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Red</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      </ul>
     </nav>
     
     <div class="main">
       
       <div class="banner">
-
+        <div class="banner-img"></div>
       </div>
       
 
-      <section class="card large-card">
+      <section class="container grid large-grid">
 
         <div class="pigment">
           <a href="/bw/">
-            <img src="static\black.jpg">
+            <img src="static\images\black.jpg">
           </a>
         </div>
 
         <div class="pigment">
           <a href="/blue/">
-            <img src="static\blue.jpg">
+            <img src="static\images\blue.jpg">
           </a>
         </div>
 
