@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+  <g id="logo">
+    <rect fill="white" width="21" height="21" rx="5"/>
+    <polygon fill="var(--yellow)" points="7 2 7 7 6.99 7 2 2.01 2 2 7 2"/>
+    <rect fill="var(--light-blue)" x="8" y="2" width="5" height="5"/>
+    <rect fill="var(--blue)" x="14" y="2" width="5" height="5"/>
+    <rect fill="var(--red)" x="2" y="8" width="5" height="5"/>
+    <polygon fill="var(--yellow)" points="13 8 13 13 12.99 13 8 8.01 8 8 13 8"/>
+    <rect fill="var(--green)" x="14" y="8" width="5" height="5"/>
+    <rect fill="var(--yellow)" x="2" y="14" width="5" height="5"/>
+    <rect fill="var(--brown)" x="8" y="14" width="5" height="5"/>
+    <polygon fill="var(--yellow)" points="19 14 19 19 18.99 19 14 14.01 14 14 19 14"/>
+    <polygon fill="var(--blue)" points="18.99 19 14 19 14 14.01 18.99 19"/>
+    <polygon fill="var(--blue)" points="12.99 13 8 13 8 8.01 12.99 13"/>
+    <polygon fill="var(--blue)" points="6.99 7 2 7 2 2.01 6.99 7"/>
+  </g>
+</svg>

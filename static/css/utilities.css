@@ -17,6 +17,13 @@
   --scrollbar-track-color: #1e1e24;
   --transition-speed: 600ms;
 
+  --blue: #012e73;
+  --yellow: #fcb702;
+  --light-blue: #69a6c4;
+  --red: #dd2f19;
+  --green: #007e52;
+  --brown: #a53915;
+
   --card-color-background: #f9f9f9;
   --card-color-text: #333;
 
@@ -31,6 +38,7 @@ body {
   width: 100%;
   margin: 0px;
   display: flex;
+  --calc-width: auto;
 }
 
 ::-webkit-scrollbar {
@@ -83,6 +91,19 @@ img {
   overflow: hidden;
 }
 
+.nav-svg {
+  fill: currentColor;
+
+}
+
+#blue {
+  fill: var(--blue);
+}
+
+#red {
+  fill: var(--red);
+}
+
 .nav-link {
   display: flex;
   justify-content: flex-end;
@@ -99,10 +120,6 @@ img {
   filter: opacity(1);
   background-color: var(--bg-nav-secondary);
   color: var(--text-nav-secondary);
-}
-
-body {
-  --calc-width: auto;
 }
 
 .link-text {
