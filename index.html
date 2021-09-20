@@ -16,7 +16,7 @@
   </head>
   <body>
 
-    <nav class="navbar">
+    <nav class="navbar shadow-8dp">
 
       <div class="logo">
         <a href="/" class="nav-link" id="logo-link">
@@ -25,10 +25,9 @@
             aria-hidden="true"
             focusable="false"
             xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 23 23">
-          
+            viewBox="0 0 23 23"
+          >
             <use  href="/static/logo_edit.svg#logo"></use>
-          
           </svg>
 
         </a>
@@ -45,13 +44,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 22 22"
               >
-                <defs>
-                  <style>.cls-bw-1 {fill: #fff;} .cls-bw-2 {fill: #000;}</style>
-                </defs>
-                <g id="Layer_2" data-name="Layer 2">
-                  <path class="cls-bw-1" d="M18.51,3,3,18.52A11,11,0,0,1,11,0,10.89,10.89,0,0,1,18.51,3Z"/>
-                  <path class="cls-bw-2" d="M22,11A11,11,0,0,1,3,18.52L18.51,3A10.93,10.93,0,0,1,22,11Z"/>
-                </g>
+                <use href="static/circle_dual_adjusted_edit.svg#circle" />
               </svg>
               <div class="resize-container">
                 <div class="link-text">Black & White</div>
@@ -62,7 +55,7 @@
           <li class="nav-item">
             <a href="/blue/" class="nav-link">
               <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
-                <use id="blue" href="static/circle_edit.svg#circle"></use>
+                <use id="blue" href="static/circle_edit.svg#circle"/>
               </svg>
               <div class="resize-container">
                 <div class="link-text">Blue</div>
@@ -73,7 +66,7 @@
           <li class="nav-item">
             <a href="/red/" class="nav-link">
               <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
-                <use id="red" href="static/circle_edit.svg#circle"></use>
+                <use id="red" href="static/circle_edit.svg#circle"/>
               </svg>
               <div class="resize-container">
                 <div class="link-text">Blue</div>
@@ -87,10 +80,40 @@
     
     <div class="main">
       
-      <div class="banner">
-        <div class="banner-img"></div>
+      <div class="information">
+        <div class="container grid large-grid">
+          <div class="banner">
+            <h1>References for 17<sup>th</sup> century paints</h1>
+            <p class="banner-text">
+              The pigment checker is an attempt to create a reference collection of 17<sup>th</sup> century Dutch paint samples by the <em>Technical Art History</em> master's at the University of Amsterdam.
+            </p>
+            <p class="banner-text">
+               Because mixing with lead white was common at the time, the second square shows what each paint looks like mixed with 50% v/v lead white paint.  and their hiding power.
+              <!-- Where possible, the paints have been made by mixing linseed oil with raw pigments in a oil lean mixture, as prescribed by painting treatises of the time. -->
+            </p>
+          </div>
+
+          <div class="card shadow-4dp"></div>
+
+          
+
+        </div>
       </div>
-      
+
+      <div class="container grid grid-3">
+        <div class="summary">
+          <h3>Colour</h3>
+          <svg>
+            <!-- Courtesy of FontAwesome -->
+            <use href="static/palette-solid.svg#palette"/>
+          </svg>
+
+          <p>
+            The painted squares can be used to examine the colour that specific paints produce when mixed with linseed oil.
+          </p>
+        </div>
+
+      </div>
 
       <section class="container grid large-grid">
 
