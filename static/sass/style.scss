@@ -1,0 +1,227 @@
+
+h2 {
+  padding: 20px 0px;
+}
+  
+h4 {
+  font-size: 1.2rem;
+}
+
+sup {
+  line-height: 0;
+}
+
+/* Elements */
+.main {
+  height: 100vh;
+  margin-top: 5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 1rem;
+  margin: auto;
+}
+
+.large-grid {
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.card {  
+  background-color: var(--card-color-background);
+  border-radius: 5px;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  transition: all 500ms;
+}
+
+// Boards
+.board-section {
+  align-items: unset;
+  padding-bottom: 10rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+
+  &:hover .overlay-text {
+    will-change: transform, filter;
+  }
+}
+
+.board {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform var(--transition-speed);
+  
+  img {
+    transition: filter var(--transition-speed);
+  }
+
+  .overlay {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    grid-template: "container";
+  }
+
+  .overlay > * {
+    grid-area: container;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .overlay-text {
+    color: white;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.2ch;
+    font-family: var(--font-family);
+    filter: opacity(0);
+    transition: filter var(--transition-speed);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    
+    img {
+      filter: brightness(50%);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .overlay-text {
+      filter: opacity(1);
+    }
+  }
+}
+
+// Homepage information banner
+.information {
+  height: clamp(300px, 550px, 700px);
+  background-color: var(--blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 150px;
+
+  .grid {
+    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  .card {
+    position: relative;
+    top: 80px;
+    aspect-ratio: 1 / 1;
+    overflow: visible;
+    background-image: url("/static/muller.jpg");
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+  }
+}
+  
+.banner {
+  p { 
+    font-size: 18px;
+    line-height: 2rem;
+    margin-bottom: 1em;
+  }
+
+  h1 {
+    margin: 8% 0;
+  }
+
+  :last-child {
+    margin-bottom: 8%;
+  }
+}
+
+// Summary using three info boxe
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 50px auto;
+  text-align: center;
+  color: var(--blue);
+  fill: var(--yellow);
+
+  h3 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  svg {
+    padding: 10px 0;
+    width: 80%;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .card {
+    padding: 30px;
+    flex: 1 1 0;
+    min-width: 250px;
+  }
+}
+
+
+// Medium screens
+@media screen and (max-width: 967px) {
+  .information .card {
+    display: none;
+  }
+}
+
+
+.pulldown {
+  height: 40px;
+}
+
+.pulldown-container {
+  height: 40px;
+}
+
+// Small screens
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    top: unset;
+    transform: translateY(50%);
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  .main {
+    margin: 0;
+  }
+
+  .information {
+    margin-bottom: 50px;
+  }
+
+  .summary svg {
+    width: 30%;
+    padding: 0;
+  }
+}

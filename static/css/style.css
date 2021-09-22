@@ -1,13 +1,13 @@
-h1 {
-  margin: 10% 0;
-}
-
 h2 {
   padding: 20px 0px;
 }
 
 h4 {
   font-size: 1.2rem;
+}
+
+sup {
+  line-height: 0;
 }
 
 /* Elements */
@@ -18,20 +18,18 @@ h4 {
 
 .grid {
   display: grid;
+  gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
   font-size: 1rem;
+  margin: auto;
 }
 
 .large-grid {
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-}
-
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 .card {
@@ -41,41 +39,60 @@ h4 {
   transition: all 500ms;
 }
 
-.pigment {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  overflow: hidden;
-  padding: 5px;
-  background: var(--background-color);
-  border-radius: 5px;
-  transition: all 500ms;
+.board-section {
+  align-items: unset;
+  padding-bottom: 10rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
-.pigment:hover {
+.board-section:hover .overlay-text {
+  will-change: transform, filter;
+}
+
+.board {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform var(--transition-speed);
+}
+.board img {
+  transition: filter var(--transition-speed);
+}
+.board .overlay {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  grid-template: "container";
+}
+.board .overlay > * {
+  grid-area: container;
+}
+.board a {
+  text-decoration: none;
+}
+.board .overlay-text {
+  color: white;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.2ch;
+  font-family: var(--font-family);
+  filter: opacity(0);
+  transition: filter var(--transition-speed);
+}
+.board:hover {
+  transform: scale(1.1);
   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
 }
-.pigment:hover .info-text {
-  display: block;
+.board:hover img {
+  filter: brightness(50%);
+}
+.board:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.board:hover .overlay-text {
+  filter: opacity(1);
 }
 
-.pigment-img {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 2/1;
-  /* width: 100%; */
-}
-
-.info-text {
-  display: none;
-  margin: 0em 1em;
-}
-
-/* Homepage banner */
 .information {
-  height: 500px;
+  height: 550px;
   background-color: var(--blue);
   color: white;
   display: flex;
@@ -84,33 +101,99 @@ h4 {
 }
 .information .grid {
   gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 .information .card {
   position: relative;
   top: 80px;
-  height: 150%;
+  aspect-ratio: 1/1;
   overflow: visible;
   background-image: url("/static/muller.jpg");
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
+  border-radius: 15px;
 }
 
 .banner p {
   font-size: 18px;
   line-height: 2rem;
+  margin-bottom: 1em;
+}
+.banner h1 {
+  margin: 8% 0;
 }
 .banner :last-child {
-  margin-bottom: 10%;
-}
-
-sup {
-  line-height: 0;
+  margin-bottom: 8%;
 }
 
 .summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 50px auto;
   text-align: center;
+  color: var(--blue);
   fill: var(--yellow);
+}
+.summary h3 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.summary svg {
+  padding: 10px 0;
+  width: 80%;
+}
+.summary p {
+  font-size: 1.1rem;
+}
+.summary .card {
+  padding: 30px;
+  flex: 1 1 0;
+  min-width: 250px;
+}
+
+@media screen and (max-width: 967px) {
+  .information .card {
+    display: none;
+  }
+}
+.pulldown {
+  height: 40px;
+}
+
+.pulldown-container {
+  height: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    top: unset;
+    transform: translateY(50%);
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  .main {
+    margin: 0;
+  }
+
+  .information {
+    margin-bottom: 50px;
+  }
+
+  .summary svg {
+    width: 30%;
+    padding: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
