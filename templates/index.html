@@ -62,10 +62,10 @@
     <!-- Pigment checker boards -->
     <section class="board-section container grid">
 
-      {% for board in boards.values() %}
+      {% for board in BOARDS.values() %}
 
         <div class="board">
-          <a href="{{ board.url }}">
+          <a href='{{ url_for("board", board=board.url) }}'>
             <div class="overlay">
               <img src="static\images\boards\{{ board.img }}">
               <div class="overlay-text">{{ board.text }}</div>

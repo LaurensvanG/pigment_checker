@@ -163,22 +163,41 @@ sup {
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
   overflow: hidden;
   padding: 5px;
-  background: var(--background-color);
-  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
   border-radius: 5px;
-  transition: all 500ms;
-}
-.pigment:hover {
-  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-  transform: translateY(-3px) scale(1.1);
-  background: #fbfbfb;
 }
 .pigment div {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+.pigment .pigment-information {
+  display: none;
+}
+
+.pigment-hover {
+  position: relative;
+  transition: transform var(--transition-speed);
+}
+.pigment-hover:before {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transition: opacity var(--transition-speed);
+}
+.pigment-hover:hover {
+  transform: translateY(-3px) scale(1.1);
+  background: #fbfbfb;
+}
+.pigment-hover:hover:before {
+  opacity: 1;
 }
 
 /* The Modal (background) */
@@ -197,8 +216,33 @@ sup {
   /* Enable scroll if needed */
   background-color: black;
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   /* Black w/ opacity */
+  padding: 25% 0;
+}
+.modal .pigment {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 30px;
+}
+.modal .pigment h4 {
+  font-size: 2rem;
+}
+.modal .pigment p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+.modal .pigment div {
+  overflow: hidden;
+}
+.modal .pigment .pigment-information {
+  display: block;
+}
+.modal .pigment .pigment-information .alias {
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 0.1ch;
 }
 
 /* Modal Content/Box */

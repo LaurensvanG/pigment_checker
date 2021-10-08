@@ -5,7 +5,7 @@
 }
 
 :root {
-  font-size: 16px;
+  font-size: 100%;
   --font-family: "Open Sans", sans-serif;
   font-family: var(--font-family);
   --text-nav-primary: #b6b6b6;
@@ -120,7 +120,7 @@ img {
   letter-spacing: 0.3ch;
 }
 .logo:hover svg {
-  width: 5rem;
+  width: 4rem;
   transform: rotate(-180deg);
 }
 .logo svg {

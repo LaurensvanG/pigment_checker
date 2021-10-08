@@ -6,7 +6,7 @@
 }
   
 :root {
-  font-size: 16px;
+  font-size: 100%;
   --font-family: 'Open Sans', sans-serif;
   font-family: var(--font-family);
 
@@ -30,7 +30,7 @@
   --card-color-background: #f9f9f9;
   --card-color-text: #333;
 
-  // Materia/ shadows
+  // Material shadows
   --shadow-key-umbra-opacity: 0.20;
   --shadow-key-penumbra-opacity: 0.14;
   --shadow-ambient-shadow-opacity: 0.12;
@@ -133,7 +133,7 @@ img {
   letter-spacing: 0.3ch;
 
   &:hover svg {
-    width: 5rem;
+    width: 4rem;
     transform: rotate(-180deg);
   }
 
