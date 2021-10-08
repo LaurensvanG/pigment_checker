@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pigment checker</title>
+    
+    <style>
+      @import url("/static/css/utilities.css");
+      @import url("/static/css/style.css");
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+
+    <script src="../static/scripts/script.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar shadow-8dp">
+
+      <div class="logo">
+        <a href="/" class="nav-link" id="logo-link">
+          <span class="logo-text">Pigment Checker</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 23 23"
+          >
+            <use  href="/static/logo_edit.svg#logo"></use>
+          </svg>
+
+        </a>
+      </div>
+
+      <div>
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a href="/bw/" class="nav-link">
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                <use href="/static/circle_dual_adjusted_edit.svg#circle" />
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Black & White</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/blue/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="blue" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Blue</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/red/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="red" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Red</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/green/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="green" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Green</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/yellow/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="yellow" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Yellow</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/brown/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="brown" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Brown</div>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+  </body>
+</html>
