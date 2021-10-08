@@ -6,8 +6,8 @@
     <title>Pigment checker</title>
     
     <style>
-      @import url("../static/css/utilities.css");
-      @import url("../style.css");
+      @import url("/static/css/utilities.css");
+      @import url("/static/css/style.css");
       @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
     </style>
 
@@ -16,84 +16,132 @@
   </head>
   <body>
 
-    <nav class="navbar">
-      <ul class="navbar-nav">
+    <!-- Navbar -->
+    <nav class="navbar shadow-8dp">
 
-        <li class="logo">
-          <a href="/" class="nav-link" id="logo-link">
-            <span class="link-text logo-text">Pigment Checker</span>
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 23 23"
-            >
-              <defs>
-                <style>.cls-1{fill:#fff;}.cls-2{fill:#312783;}.cls-3{fill:#e30613;}.cls-4{fill:#312783;}</style>
-              </defs>
-              <g>
-                <rect class="cls-1" x="0.5" y="0.5" width="22" height="22" rx="5.5"/>
-                <path class="cls-2" d="M17,1a5,5,0,0,1,5,5V17a5,5,0,0,1-5,5H6a5,5,0,0,1-5-5V6A5,5,0,0,1,6,1H17m0-1H6A6,6,0,0,0,0,6V17a6,6,0,0,0,6,6H17a6,6,0,0,0,6-6V6a6,6,0,0,0-6-6Z"/>
-                <polygon class="cls-3" points="8 3 8 8 7.99 8 3 3.01 3 3 8 3"/>
-                <rect class="cls-4" x="9" y="3" width="5" height="5"/>
-                <rect class="cls-4" x="15" y="3" width="5" height="5"/>
-                <rect class="cls-3" x="3" y="9" width="5" height="5"/>
-                <polygon class="cls-3" points="14 9 14 14 13.99 14 9 9.01 9 9 14 9"/>
-                <rect class="cls-4" x="15" y="9" width="5" height="5"/>
-                <rect class="cls-3" x="3" y="15" width="5" height="5"/>
-                <rect class="cls-3" x="9" y="15" width="5" height="5"/>
-                <polygon class="cls-3" points="20 15 20 20 19.99 20 15 15.01 15 15 20 15"/>
-                <polygon class="cls-4" points="19.99 20 15 20 15 15.01 19.99 20"/>
-                <polygon class="cls-4" points="13.99 14 9 14 9 9.01 13.99 14"/>
-                <polygon class="cls-4" points="7.99 8 3 8 3 3.01 7.99 8"/>
-              </g>
-            </svg>
-          </a>
-        </li>
+      <div class="logo">
+        <a href="/" class="nav-link" id="logo-link">
+          <span class="logo-text">Pigment Checker</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 23 23"
+          >
+            <use  href="/static/logo_edit.svg#logo"></use>
+          </svg>
 
-        <li class="nav-item">
-          <a href="/bw/" class="nav-link">
-            <span class="link-text">Black & White</span>
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 22 22"
-            >
-              <defs>
-                <style>.cls-1 {fill: #fff;} .cls-2 {fill: #000;}</style>
-              </defs>
-              <g id="Layer_2" data-name="Layer 2">                  
-                <path class="cls-1" d="M18.78,3.22,3.22,18.78A11,11,0,0,1,18.78,3.22Z"/>
-                <path class="cls-2" d="M22,11A11,11,0,0,1,3.22,18.78L18.78,3.22A11,11,0,0,1,22,11Z"/>
-              </g>
-            </svg>
-            
-          </a>
-        </li>
+        </a>
+      </div>
 
-      </ul>
+      <div>
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a href="/bw/" class="nav-link">
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                <use href="/static/circle_dual_adjusted_edit.svg#circle" />
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Black & White</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/blue/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="blue" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Blue</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/red/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="red" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Red</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/green/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="green" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Green</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/yellow/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="yellow" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Yellow</div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/brown/" class="nav-link">
+              <svg class="nav-svg" aria-hidden="true" focusable="false" viewBox="0 0 22 22">
+                <use id="brown" href="/static/circle_edit.svg#circle"/>
+              </svg>
+              <div class="resize-container">
+                <div class="link-text">Brown</div>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
     </nav>
 
-    <div class="main">
+    <div class="main pigment-section container">
 
       <h2>Black</h2>
 
-      <section class="card">
+      <section class=" card grid">
 
         <div class="pigment">
-          <h4>Bone black (Kremer 47100)</h4>
-          <div class="pigment-img">
-            <img src="..\static\images\bw_bone_black.gif">
-            <img src="..\static\images\bw_bone_black_lw.gif">
+          <h4>Bone black</h4>
+          <p>Kremer 47100</p>
+          <a href="">
+              <div class="pigment-img">
+                <img src="..\static\images\bw_bone_black.gif">
+                <img src="..\static\images\bw_bone_black_lw.gif">
+            </div>
+            </a>
+        </div>
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
           </div>
-          <div class="info-text">
-            <p>Bone black created from Kremer Pigmente number 47100</p>
-          </div>
+
         </div>
 
         <div class="pigment">
-          <h4>Ivory black (Kremer 12000)</h4>
+          <h4>Ivory black </h4>
+          <p>Kremer 12000</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_ivory_black_kremer.gif">
             <img src="..\static\images\bw_ivory_black_kremer_lw.gif">
@@ -101,7 +149,8 @@
         </div>
 
         <div class="pigment">
-          <h4>Ivory black (Mayerne)</h4>
+          <h4>Ivory black</h4>
+          <p>Mayerne</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_ivory_black_mayerne.gif">
             <img src="..\static\images\bw_ivory_black_mayerne_lw.gif">
@@ -109,7 +158,8 @@
         </div>
 
         <div class="pigment">
-          <h4>Lamp black (Kremer 47250)</h4>
+          <h4>Lamp black</h4>
+          <p>Kremer 47250</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_lamp_black.gif">
             <img src="..\static\images\bw_lamp_black_lw.gif">
@@ -117,7 +167,8 @@
         </div>
 
         <div class="pigment">
-          <h4>Vine black (Kremer 47000)</h4>
+          <h4>Vine black</h4>
+          <p>Kremer 47000</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_vine_black.gif">
             <img src="..\static\images\bw_vine_black_lw.gif">
@@ -125,7 +176,8 @@
         </div>
 
         <div class="pigment">
-          <h4>Charcoal from beech (Kremer 47800)</h4>
+          <h4>Charcoal from beech</h4>
+          <p>Kremer 47800</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_charcoal.gif">
             <img src="..\static\images\bw_charcoal_lw.gif">
@@ -134,6 +186,7 @@
 
         <div class="pigment">
           <h4>Black chalk</h4>
+          <p>&nbsp;</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_black_chalk.gif">
             <img src="..\static\images\bw_black_chalk_lw.gif">
@@ -144,10 +197,11 @@
 
       <h2>White</h2>
 
-      <section class="card">
+      <section class="card grid">
         
         <div class="pigment">
-          <h4>Lead white (Rublev #1)</h4>
+          <h4>Lead white</h4>
+          <p>Rublev #1</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_lead_white_rublev.gif">
             <img src="..\static\images\bw_lead_white_rublev_lw.gif">
@@ -155,7 +209,8 @@
         </div>
 
         <div class="pigment">
-          <h4>Lead white (Stack process, Wallert)</h4>
+          <h4>Lead white</h4>
+          <p>Stack process, Wallert</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_lead_white_stack.gif">
             <img src="..\static\images\bw_lead_white_stack_lw.gif">
@@ -163,7 +218,8 @@
         </div>
 
         <div class="pigment">
-          <h4>Lead white (Stack process, Natural Pigments)</h4>
+          <h4>Lead white</h4>
+          <p>Stack process, Natural Pigments</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_lead_white_natural.gif">
             <img src="..\static\images\bw_lead_white_natural_lw.gif">
@@ -171,7 +227,8 @@
         </div>
 
         <div class="pigment">
-          <h4>Lead white (RMA)</h4>
+          <h4>Lead white</h4>
+          <p>RMA</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_lead_white_rma.gif">
             <img src="..\static\images\bw_lead_white_rma_lw.gif">
@@ -180,6 +237,7 @@
 
         <div class="pigment">
           <h4>Gypsum</h4>
+          <p>&nbsp;</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_gypsum.gif">
             <img src="..\static\images\bw_gypsum_lw.gif">
@@ -188,6 +246,7 @@
 
         <div class="pigment">
           <h4>Champagne chalk</h4>
+          <p>&nbsp;</p>
           <div class="pigment-img">
             <img src="..\static\images\bw_champagne_chalk.gif">
             <img src="..\static\images\bw_champagne_chalk_lw.gif">

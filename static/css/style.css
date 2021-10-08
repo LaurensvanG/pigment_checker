@@ -12,19 +12,17 @@ sup {
 
 /* Elements */
 .main {
-  height: 100vh;
   margin-top: 5rem;
 }
 
 .grid {
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  font-size: 1rem;
   margin: auto;
 }
 
@@ -39,6 +37,7 @@ sup {
   transition: all 500ms;
 }
 
+/* Homepage */
 .information {
   height: 550px;
   background-color: var(--blue);
@@ -64,7 +63,7 @@ sup {
 }
 
 .banner p {
-  font-size: 18px;
+  font-size: 1.1rem;
   line-height: 2rem;
   margin-bottom: 1em;
 }
@@ -86,7 +85,7 @@ sup {
   fill: var(--yellow);
 }
 .summary h3 {
-  font-size: 30px;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 .summary svg {
@@ -154,21 +153,83 @@ sup {
   filter: opacity(1);
 }
 
+/* Pigment pages */
+.pigment-section .grid {
+  align-items: end;
+}
+
+.pigment {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  overflow: hidden;
+  padding: 5px;
+  background: var(--background-color);
+  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
+  border-radius: 5px;
+  transition: all 500ms;
+}
+.pigment:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-3px) scale(1.1);
+  background: #fbfbfb;
+}
+.pigment div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* The Modal (background) */
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Media queries */
 @media screen and (max-width: 967px) {
   .information .card {
-    display: none;
-  }
-}
-.pulldown {
-  height: 40px;
-}
-
-.pulldown-container {
-  height: 40px;
-}
-
-@media screen and (max-width: 777px) {
-  .logo-text {
     display: none;
   }
 }
@@ -185,6 +246,10 @@ sup {
   .logo {
     margin: 0;
   }
+  .logo:hover svg {
+    width: 2rem;
+    transform: rotate(0deg);
+  }
 
   .logo-text {
     display: none;
@@ -193,22 +258,39 @@ sup {
   .nav-link {
     justify-content: center;
   }
+  .nav-link:hover .resize-container {
+    overflow: hidden;
+    width: 0;
+  }
 
   .main {
     margin: 0;
+  }
+
+  .container {
+    width: clamp(200px, 1200px, 95%);
   }
 
   .information {
     margin-bottom: 50px;
   }
 
+  .summary h3 {
+    font-size: 1.5rem;
+  }
   .summary svg {
     width: 30%;
     padding: 0;
   }
+  .summary .card {
+    padding: 8px;
+  }
+  .summary .my-2 {
+    margin: 0.5rem 0;
+  }
 
   .board-section {
-    grid-template-columns: repeat(2, minmax(250px, 700px));
+    grid-template-columns: repeat(2, minmax(200px, 700px));
   }
 }
 
