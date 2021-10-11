@@ -171,3 +171,7 @@ def select_colour_data(colour):
         data[col] = colour_data
 
     return data
+
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=5000, debug=True, threaded=True)

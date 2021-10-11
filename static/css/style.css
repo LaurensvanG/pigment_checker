@@ -48,7 +48,7 @@ sup {
 }
 .information .grid {
   gap: 50px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
 }
 .information .card {
   position: relative;
@@ -103,8 +103,8 @@ sup {
 
 .board-section {
   align-items: unset;
-  padding-bottom: 10rem;
-  grid-template-columns: repeat(3, minmax(250px, 700px));
+  padding: 0 0 5rem 0;
+  grid-template-columns: repeat(3, minmax(150px, 700px));
 }
 .board-section:hover .overlay-text {
   will-change: transform, filter;
@@ -159,11 +159,6 @@ sup {
 }
 
 .pigment {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
   overflow: hidden;
   padding: 5px;
   border-radius: 5px;
@@ -249,11 +244,11 @@ sup {
   align-items: center;
   position: fixed;
   height: 50px;
+  width: 50px;
   padding: 5px;
   border-radius: 50%;
-  fill: var(--yellow);
+  fill: white;
   background-color: var(--blue);
-  aspect-ratio: 1/1;
   font-size: x-large;
   font-weight: bold;
   transition: transform calc(var(--transition-speed) / 2);
@@ -291,6 +286,9 @@ sup {
   .information .card {
     display: none;
   }
+  .information .grid {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
 }
 @media screen and (max-width: 800px) {
   .logo-text {
@@ -298,7 +296,8 @@ sup {
   }
 
   .board-section {
-    grid-template-columns: repeat(2, minmax(200px, 700px));
+    grid-template-columns: repeat(2, minmax(100px, 700px));
+    gap: 20px;
   }
 
   .modal .pigment {
@@ -352,6 +351,7 @@ sup {
     overflow-y: auto;
     top: 10px;
     bottom: 100px;
+    padding: 15px;
   }
   .modal .pigment table {
     margin-bottom: 30px;
@@ -372,6 +372,17 @@ sup {
   }
   .summary .my-2 {
     margin: 0.5rem 0;
+  }
+
+  .pigment-hover:before {
+    box-shadow: unset;
+    transition: unset;
+  }
+  .pigment-hover:hover {
+    transform: unset;
+  }
+  .pigment-hover:hover:before {
+    opacity: 0;
   }
 }
 
