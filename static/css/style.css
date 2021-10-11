@@ -177,6 +177,12 @@ sup {
   display: none;
 }
 
+.ellipsis-manufacturer > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .pigment-hover {
   position: relative;
   transition: transform var(--transition-speed);
@@ -202,23 +208,18 @@ sup {
 
 /* The Modal (background) */
 .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  /* Stay in place */
   z-index: 1;
-  /* Sit on top */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
   background-color: black;
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.8);
-  /* Black w/ opacity */
-  padding: 25% 0;
 }
 .modal .pigment {
   padding: 30px;

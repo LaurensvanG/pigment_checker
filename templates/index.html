@@ -28,7 +28,7 @@
         <h3 class="my-2">Colour</h3>
         <svg aria-hidden="true" focusable="false">
           <!-- Courtesy of FontAwesome -->
-          <use href="static/palette-solid.svg#palette"/>
+          <use href='{{ url_for("static", filename="palette-solid.svg") }}#palette'/>
         </svg>
         <p class="my-2">
           The painted squares can be used to examine the colour that specific paints produce when mixed with linseed oil.
@@ -39,7 +39,7 @@
         <h3 class="my-2">Hiding power</h3>
         <svg aria-hidden="true" focusable="false">
           <!-- Courtesy of FontAwesome -->
-          <use href="static/eye-dash-solid.svg#eye"/>
+          <use href='{{ url_for("static", filename="eye-dash-solid.svg") }}#eye'/>
         </svg>
         <p class="my-2">
           To demonstrate the hiding power of each paint, three different types of underdrawing are shown as black lines. Each pigment checker square is painted lightly on the left and thicker on the right.
@@ -50,7 +50,7 @@
         <h3 class="my-2">Mixing</h3>
         <svg aria-hidden="true" focusable="false">
           <!-- Courtesy of FontAwesome, slimmed down and added id -->
-          <use href="static/mortar-pestle-solid.svg#mortar"/>
+          <use href='{{ url_for("static", filename="mortar-pestle-solid.svg") }}#mortar'/>
         </svg>
         <p class="my-2">
           Lead white was often mixed with other colours to create tints from paints. To show the effects of lead white mixing, every paint has been mixed with 50% v/v lead white.
@@ -65,7 +65,7 @@
       {% for board in BOARDS.values() %}
 
         <div class="board">
-          <a href='{{ url_for("board", board=board.url) }}'>
+          <a href='{{ url_for("board", colour=board.url) }}'>
             <div class="overlay">
               <img src="static\images\boards\{{ board.img }}">
               <div class="overlay-text">{{ board.text }}</div>

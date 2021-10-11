@@ -24,23 +24,24 @@ window.addEventListener("DOMContentLoaded", () => ((d, w) => {
     w.addEventListener("load", resize, false);
 
 
-    // Modal
-    const modal = d.getElementById("test");
-
-    // Get the button that opens the modal
-    const btn = document.getElementById("myBtn");
+    // Get all pigments that act as modals
+    const modals = d.getElementsByClassName("pigment-container");
 
     // Get the <span> element that closes the modal
     const span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on the pigment, open the modal
-    modal.onclick = function() {
-      modal.classList.add("modal");
-
-      // Disable hover effects
-      modal.classList.remove("pigment-hover");
-
-      modal.firstElementChild.classList.add("container", "card");
+    for (let modal of modals) {
+      modal.onclick = function() {
+        modal.classList.add("modal");
+  
+        // Disable hover effects
+        modal.classList.remove("pigment-hover");
+  
+        // Change appearance of the card inside the modal
+        modal.firstElementChild.classList.add("container", "card");
+        modal.firstElementChild.classList.remove("ellipsis-manufacturer")
+      }
     }
 
     // When the user clicks on <span> (x), close the modal
@@ -50,11 +51,13 @@ window.addEventListener("DOMContentLoaded", () => ((d, w) => {
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.classList.remove("modal");
-        modal.classList.add("pigment-hover");
-      modal.firstElementChild.classList.remove("container");
-
+      for (let modal of modals) {
+        if (event.target == modal) {
+          modal.classList.remove("modal");
+          modal.classList.add("pigment-hover");
+          modal.firstElementChild.classList.remove("container", "card");
+          modal.firstElementChild.classList.add("ellipsis-manufacturer");
+        } 
       }
     }
 
