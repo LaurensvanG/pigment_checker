@@ -1,7 +1,7 @@
 // Wait for content to be loaded
 window.addEventListener("DOMContentLoaded", () => ((d, w) => {
 
-    // Flyout menu items
+    /* Flyout menu items */
     // Adapted from https://levelup.gitconnected.com/overcoming-css-not-calculating-auto-height-for-transitions-f98a7e062f07
     
     // Grab all targets to be resized
@@ -23,16 +23,37 @@ window.addEventListener("DOMContentLoaded", () => ((d, w) => {
     w.addEventListener("resize", resize, false);
     w.addEventListener("load", resize, false);
 
-
+    
+    /* Pigment modals */
     // Get all pigments that act as modals
     const modals = d.getElementsByClassName("pigment-container");
 
-    // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
+    // Function to close the modal 
+    function closeModal(target) {
+      for (let modal of modals) {
+        if (target == modal) {
+          modal.classList.remove("modal");
+          modal.classList.add("pigment-hover");
+          modal.firstElementChild.classList.remove("container", "card");
+          modal.firstElementChild.classList.add("ellipsis-manufacturer");
+        } 
+      }
+    }
+
+    // Close the modal using the close button
+    function buttonClose(event) {
+      // Prevent event propagation so the modal does not open
+      // itself again
+      event.stopPropagation();
+
+      // Close the modal
+      const modal = event.target.closest(".modal");
+      closeModal(modal);
+    }
 
     // When the user clicks on the pigment, open the modal
     for (let modal of modals) {
-      modal.onclick = function() {
+      modal.addEventListener("click", () => {
         modal.classList.add("modal");
   
         // Disable hover effects
@@ -41,24 +62,16 @@ window.addEventListener("DOMContentLoaded", () => ((d, w) => {
         // Change appearance of the card inside the modal
         modal.firstElementChild.classList.add("container", "card");
         modal.firstElementChild.classList.remove("ellipsis-manufacturer")
-      }
+        
+        // Get the modal's closing button and add the closing listener
+        const closeButton = modal.getElementsByClassName("close-button")[0];
+        closeButton.addEventListener("click", buttonClose);
+      });
     }
-
-    // When the user clicks on <span> (x), close the modal
-    // span.onclick = function() {
-    //   modal.style.display = "none";
-    // }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      for (let modal of modals) {
-        if (event.target == modal) {
-          modal.classList.remove("modal");
-          modal.classList.add("pigment-hover");
-          modal.firstElementChild.classList.remove("container", "card");
-          modal.firstElementChild.classList.add("ellipsis-manufacturer");
-        } 
-      }
+      closeModal(event.target);
     }
 
   })(document, window)

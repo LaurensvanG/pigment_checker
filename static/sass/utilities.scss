@@ -46,7 +46,9 @@ body {
   width: 100%;
   margin: 0px;
   display: flex;
+  flex-direction: column;
   --calc-width: auto;
+  gap: 0;
 }
 
 ::-webkit-scrollbar {

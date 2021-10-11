@@ -13,10 +13,16 @@
 
         <!-- Create square for every pigment -->
         {% for pigment in pigments %}
-          <div class="pigment-container pigment-hover" id="test">
+          <div class="pigment-container pigment-hover">
             <div class="pigment ellipsis-manufacturer">
+              <!-- Courtesy of FontAwesome, slimmed down and added id -->
+              <svg class="close-button shadow-8dp" viewBox="0 0 352 512">
+                <use href='{{ url_for("static", filename="times-solid.svg") }}#times'/>
+              </svg>
+
               <h4>{{  pigment["Name"]  }}</h4>
               <p class="">{{ pigment["Manufacturer"] }}</p>
+
 
               <!-- Addtional information only shown in modal form -->
               <div class="pigment-information">
@@ -27,13 +33,14 @@
                 <p>
                   {{ pigment["Description"] }}
                 </p>
+                <hr/>
 
                 <p class="mt-3"><strong>Information</strong></p>
                 <table>
                   {% for tc in table_columns %}
                     <tr>
                       <td>{{ tc }}</td>
-                      <td>{{ pigment[tc] }}</td>
+                      <td>{{ pigment[tc] | capitalize }}</td>
                     </tr>
                   {% endfor %}
                 </table>

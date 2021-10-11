@@ -204,7 +204,12 @@ sup {
   .pigment-information {
     display: none;
   }
+
+  .close-button {
+    display: none;
+  }
 }
+
 
 .ellipsis-manufacturer > p {
   white-space: nowrap;
@@ -239,7 +244,7 @@ sup {
   }
 }
 
-/* The Modal (background) */
+/* Pigment information modal */
 // Adapted from https://www.w3schools.com/howto/howto_css_modals.asp
 .modal {
   display: flex; // Center on the page
@@ -257,11 +262,13 @@ sup {
   background-color: rgba(0,0,0,0.8); // Black w/ opacity
 
   .pigment {
-    padding: 30px;
+    position: absolute;
+    padding: clamp(10px, 30px, 50px);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px 30px;
-
+    top: 120px;
+    bottom: unset;
     
     h4 {
       font-size: 2rem;
@@ -276,8 +283,49 @@ sup {
       overflow: hidden;
     }
 
+    .close-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      height: 50px;
+      padding: 5px;
+      border-radius: 50%;
+      fill: var(--yellow);
+      background-color: var(--blue);
+      aspect-ratio: 1 / 1;
+      font-size: x-large;
+      font-weight: bold;
+      transition: transform calc(var(--transition-speed) / 2);
+
+      top: 100px;
+      /* Make sure the button is always on the right of the modal
+      calculate: margin width:          100vw - size of modal
+                 left margin width:     / 2 
+                                        + size of the modal 
+                                        - 50px */
+      left: calc((100vw - clamp(200px, 1200px, 90%)) / 2 + clamp(200px, 1200px, 90%) - 30px);
+
+      &:hover {
+        transform:  scale(1.1) rotate(90deg);
+      }
+    }
+
     .pigment-information {
       display: block;
+
+      table {
+        border-collapse: collapse;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #eee;
+      }
+
+      td {
+        padding: 3px 5px;
+      }
+
 
       .alias {
         font-weight: bold;
@@ -289,47 +337,38 @@ sup {
   }
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 
 /* Media queries */
-// Medium screens
+
+
 @media screen and (max-width: 967px) {
   .information .card {
-    display: none;
+    display: none; // Remove image in information section
   }
 }
 
-// Logo text removal to allow full navbar
-// @media screen and (max-width: 777px) {
-//   .logo-text {
-//     display: none;
-//   }
-// }
+@media screen and (max-width: 800px) {
+  // Logo text removal to allow full navbar
+  .logo-text {
+    display: none; 
+  }
 
-// Small screens
+  // Reduce boards from 3 to 2 columns to prevent overflow
+  .board-section {
+    grid-template-columns: repeat(2, minmax(200px, 700px));
+  }
+
+  // Change information modal from 2 to 1 column
+  .modal {
+    .pigment {
+      display: block;
+    }
+  }
+}
+
+
+// Move navbar to bottom of the screen on 
+// small devices
 @media only screen and (max-width: 600px) {
   .navbar {
     bottom: 0;
@@ -363,7 +402,8 @@ sup {
   }
 
   .main {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 6rem;
   }
 
   .container {
@@ -372,6 +412,22 @@ sup {
 
   .information {
     margin-bottom: 50px;
+  }
+  
+  .modal {
+    .pigment {
+      overflow-y: auto;
+      top: 10px;
+      bottom: 100px;
+      
+      table {
+        margin-bottom: 30px;
+      }
+
+      .close-button {
+        top: 25px;
+      }
+    }
   }
 
   .summary {
@@ -391,9 +447,5 @@ sup {
     .my-2 {
       margin: 0.5rem 0;
     }
-  }
-
-  .board-section {
-    grid-template-columns: repeat(2, minmax(200px, 700px));
   }
 }
