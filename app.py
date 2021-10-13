@@ -1,3 +1,4 @@
+from datetime import datetime
 from re import A
 import sqlite3
 from flask import Flask, render_template, redirect, g
@@ -80,8 +81,10 @@ DATABASE = "pigments.db"
 
 # Add the BOARDS constant to all pages as it is used for the navbar
 @app.context_processor
-def add_boards():
-    return dict(BOARDS=BOARDS)
+def add_info():
+    year = datetime.now().strftime("%Y")
+
+    return dict(BOARDS=BOARDS, year=year)
 
 
 @app.route("/", methods=["GET"])

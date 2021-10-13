@@ -27,3 +27,8 @@ The information is presented hierarchically through the grouping by colour of th
 After a colour is selected, the user is presented with all the coloured squares associated with that colour, including some basic information per square (name & manufacturer). Upon clicking a square, a modal presents the user with more detailed information on the selected paint.
 
 | ![Blue page](blue_page.jpg) | ![Information for lapis lazuli](lapis.jpg) |
+|-|-|
+
+---
+
+Information available for most pigments: name, colour, alias, manufacturer, description, initial observations, colour & translucency, opacity, resistance, stringiness, observations during grinding, details, shape, scratching, smoothness, impasto, grittiness, observations during application, colour intensity, glossiness, hiding power, tinting strength, observations during mixing with lead white, observations during application with lead white.

@@ -58,9 +58,20 @@
 
     </nav>
 
-    {% block body %}
+    <div class="content">
+      {% block body %}
+      {% endblock %}
+    </div>
 
-    {% endblock %}
+    <footer>
+      <div class="footer-container">
+        <p>&copy; {{ year }}</p>
+        <p>·</p>
+        <p>Laurens van Giersbergen</p>
+        <p>·</p>
+        <a href="https://github.com/LaurensvanG/pigment_checker">Github</a>
+      </div>
+    </footer>
 
   </body>
 </html>
