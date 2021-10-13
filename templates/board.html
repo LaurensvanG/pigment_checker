@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+  <div class="main pigment-section container">
+
+    <!-- Give every colour on this page a card -->
+    {% for colour, pigments in colours.items() %}
+
+      <h2>{{ colour|title }}</h2>
+      
+      <section class="card grid">  
+
+        <!-- Create square for every pigment -->
+        {% for pigment in pigments %}
+          <div class="pigment-container pigment-hover">
+            <div class="pigment ellipsis-manufacturer">
+              <!-- Courtesy of FontAwesome, slimmed down and added id -->
+              <svg class="close-button shadow-8dp" viewBox="0 0 352 512">
+                <use href='{{ url_for("static", filename="times-solid.svg") }}#times'/>
+              </svg>
+
+              <h4>{{  pigment["Name"]  }}</h4>
+              <p class="">{{ pigment["Manufacturer"] }}</p>
+
+
+              <!-- Addtional information only shown in modal form -->
+              <div class="pigment-information">
+                {% if pigment["Alias"] is not none %}
+                  <p class="alias">{{ pigment["Alias"] }} </p>
+                  <hr />
+                {% endif %}
+                <p>
+                  {{ pigment["Description"] }}
+                </p>
+                <hr/>
+
+                <p class="mt-3"><strong>Information</strong></p>
+                <table>
+                  {% for tc in table_columns %}
+                    <tr>
+                      <td>{{ tc }}</td>
+                      <td>{{ pigment[tc] | capitalize }}</td>
+                    </tr>
+                  {% endfor %}
+                </table>
+              </div>
+
+              <div>
+                <img src={{ url_for("static", filename="images/squares/" + pigment["PCID"] + ".gif") }}>
+                <img src={{ url_for("static", filename="images/squares/" + pigment["PCID"] + "_lw.gif") }}>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+        </section>
+
+    {% endfor %}
+
+
+      <!-- <div class="pigment-hover" id="test">
+        <div class="pigment">
+          <h4>Bone black</h4>
+          <p>Kremer 47100</p>
+          <div class="pigment-information">
+            <p class="alias">Pigment black 9  ·  C.I. 77267</p>
+            <hr />
+            <p>
+              Bone black is an organic black pigment created from (animal) bones.
+            </p>
+          </div>
+          <div>
+            <img src="..\static\images\bw_bone_black.gif">
+            <img src="..\static\images\bw_bone_black_lw.gif">
+          </div>
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Ivory black </h4>
+        <p>Kremer 12000</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_ivory_black_kremer.gif">
+          <img src="..\static\images\bw_ivory_black_kremer_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Ivory black</h4>
+        <p>Mayerne</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_ivory_black_mayerne.gif">
+          <img src="..\static\images\bw_ivory_black_mayerne_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Lamp black</h4>
+        <p>Kremer 47250</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_lamp_black.gif">
+          <img src="..\static\images\bw_lamp_black_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Vine black</h4>
+        <p>Kremer 47000</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_vine_black.gif">
+          <img src="..\static\images\bw_vine_black_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Charcoal from beech</h4>
+        <p>Kremer 47800</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_charcoal.gif">
+          <img src="..\static\images\bw_charcoal_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Black chalk</h4>
+        <p>&nbsp;</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_black_chalk.gif">
+          <img src="..\static\images\bw_black_chalk_lw.gif">
+        </div>
+      </div>
+
+    </section>
+
+    <h2>White</h2>
+
+    <section class="card grid">
+      
+      <div class="pigment">
+        <h4>Lead white</h4>
+        <p>Rublev #1</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_lead_white_rublev.gif">
+          <img src="..\static\images\bw_lead_white_rublev_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Lead white</h4>
+        <p>Stack process, Wallert</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_lead_white_stack.gif">
+          <img src="..\static\images\bw_lead_white_stack_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Lead white</h4>
+        <p>Stack process, Natural Pigments</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_lead_white_natural.gif">
+          <img src="..\static\images\bw_lead_white_natural_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Lead white</h4>
+        <p>RMA</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_lead_white_rma.gif">
+          <img src="..\static\images\bw_lead_white_rma_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Gypsum</h4>
+        <p>&nbsp;</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_gypsum.gif">
+          <img src="..\static\images\bw_gypsum_lw.gif">
+        </div>
+      </div>
+
+      <div class="pigment">
+        <h4>Champagne chalk</h4>
+        <p>&nbsp;</p>
+        <div class="pigment-img">
+          <img src="..\static\images\bw_champagne_chalk.gif">
+          <img src="..\static\images\bw_champagne_chalk_lw.gif">
+        </div>
+      </div>
+
+    </section> -->
+
+  </div>
+
+{% endblock %}

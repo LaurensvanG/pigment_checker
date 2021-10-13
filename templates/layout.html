@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pigment checker</title>
+    
+    <link rel="icon" type="image/svg+xml" href='{{ url_for("static", filename="/logo_edit.svg") }}#logo'>
+
+    <style>
+      @import url('{{ url_for("static", filename="/css/utilities.css") }}');
+      @import url('{{ url_for("static", filename="/css/style.css") }}');
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+
+    <script src='{{ url_for("static", filename="/scripts/script.js") }}'></script>
+
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar shadow-8dp">
+
+      <div class="logo">
+        <a href="/" class="nav-link" id="logo-link">
+          <span class="logo-text">Pigment Checker</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 23 23"
+          >
+            <use href='{{ url_for("static", filename="logo_edit.svg") }}#logo'></use>
+          </svg>
+
+        </a>
+      </div>
+
+      <div>
+        <ul class="navbar-nav">
+
+          {% for menu_item in BOARDS.values() %}
+            <li class="nav-item">
+              <a href='{{ url_for("board", colour=menu_item.url) }}' class="nav-link">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                  <use id='{{ menu_item.url }}' href='{{ url_for("static", filename=menu_item.logo) }}#circle' />
+                </svg>
+                <div class="resize-container">
+                  <div class="link-text">{{ menu_item.text }}</div>
+                </div>
+              </a>
+            </li>
+
+          {% endfor %}
+
+        </ul>
+      </div>
+
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+  </body>
+</html>

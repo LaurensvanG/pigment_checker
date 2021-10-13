@@ -1,3 +1,6 @@
 *.ai
 *.tif
 .vscode
+__pycache__
+*.ipynb
+*.csv

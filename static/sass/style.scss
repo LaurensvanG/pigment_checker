@@ -13,7 +13,6 @@ sup {
 
 /* Elements */
 .main {
-  // height: 100vh;
   margin-top: 5rem;
 }
 
@@ -26,10 +25,6 @@ sup {
   align-items: center;
   padding: 10px;
   margin: auto;
-}
-
-.large-grid {
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 .card {  
@@ -51,33 +46,33 @@ sup {
 
   .grid {
     gap: 50px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
 
   .card {
     position: relative;
     top: 80px;
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1 / 1;
-    overflow: visible;
+    overflow: visible; // Make the image go over the banner
     background-image: url("/static/muller.jpg");
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
     border-radius: 15px;
   }
-}
-  
-.banner {
+
   p { 
     font-size: 1.1rem;
     line-height: 2rem;
     margin-bottom: 1em;
   }
-
+  
   h1 {
     margin: 8% 0;
   }
-
+  
   :last-child {
     margin-bottom: 8%;
   }
@@ -118,8 +113,8 @@ sup {
 // Boards
 .board-section {
   align-items: unset;
-  padding-bottom: 10rem;
-  grid-template-columns: repeat(3, minmax(250px, 700px));
+  padding: 0 0 5rem 0;
+  grid-template-columns: repeat(3, minmax(150px, 700px));
 
   &:hover .overlay-text {
     will-change: transform, filter;
@@ -179,6 +174,8 @@ sup {
 }
 
 /* Pigment pages */
+
+// Align squares to bottom to align regardless of title size
 .pigment-section {
   .grid {
     align-items: end;
@@ -186,22 +183,9 @@ sup {
 }
 
 .pigment {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   overflow: hidden;
   padding: 5px;
-  background: var(--background-color);
-  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
   border-radius: 5px;
-  transition: all 500ms;
-
-  &:hover {
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-    transform: translateY(-3px) scale(1.1);
-    background: #fbfbfb;
-  }
 
   div {
     display: flex;
@@ -209,64 +193,182 @@ sup {
     justify-content: center;
   }
 
-  
-}
-
-/* The Modal (background) */
-.modal {
-  // display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-/* Media queries */
-// Medium screens
-@media screen and (max-width: 967px) {
-  .information .card {
+  // Information in the modal is hidden by default
+  .pigment-information, .close-button {
     display: none;
   }
 }
 
-// Logo text removal to allow full navbar
-// @media screen and (max-width: 777px) {
-//   .logo-text {
-//     display: none;
-//   }
-// }
+// Cut off long manufacturer information
+.ellipsis-manufacturer > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-// Small screens
+.pigment-hover{
+  position: relative;
+  transition: transform var(--transition-speed);
+
+  // Faster animation by pre-rendering the shadow
+  &:before {
+    opacity: 0; // start hidden
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transition: opacity var(--transition-speed);
+  }
+
+  &:hover {
+    transform: translateY(-3px) scale(1.1);
+    background: #fbfbfb;
+
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+/* Pigment information modal */
+// Adapted from https://www.w3schools.com/howto/howto_css_modals.asp
+.modal {
+  display: flex; // Center on the page
+  justify-content: center;
+  align-items: center;
+
+  position: fixed; // Stay in place
+  z-index: 1; // Sit on top
+  left: 0;
+  top: 0;
+  width: 100%; // Full width
+  height: 100%; // Full height
+  overflow: auto; // Enable scroll if needed
+  background-color: rgb(0,0,0); // Fallback color
+  background-color: rgba(0,0,0,0.8); // Black w/ opacity
+
+  .pigment {
+    position: absolute;
+    padding: clamp(10px, 30px, 50px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 30px;
+    top: 120px;
+    bottom: unset;
+    
+    h4 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    div {
+      overflow: hidden;
+    }
+
+    .close-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      height: 50px;
+      width: 50px;
+      padding: 5px;
+      border-radius: 50%;
+      fill: white;
+      background-color: var(--blue);
+      font-size: x-large;
+      font-weight: bold;
+      transition: transform calc(var(--transition-speed) / 2);
+
+      top: 100px;
+      /* Make sure the  close button is always on the right of the modal
+      calculate: margin width:          100vw - size of modal
+                 left margin width:     / 2 
+                                        + size of the modal 
+                                        - offset */
+      left: calc(
+        (100vw - clamp(200px, 1200px, 90%)) 
+        / 2 
+        + clamp(200px, 1200px, 90%) 
+        - 30px);
+
+      &:hover {
+        transform: scale(1.1) rotate(90deg);
+      }
+    }
+
+    // Show the additional information
+    .pigment-information {
+      display: block;
+
+      table {
+        border-collapse: collapse;
+      }
+
+      // Change background of every other row for clearer separation
+      tr:nth-child(odd) {
+        background-color: #eee;
+      }
+
+      td {
+        padding: 3px 5px;
+      }
+
+      .alias {
+        font-weight: bold;
+        font-style: italic;
+        letter-spacing: .1ch;
+      }
+    }
+
+  }
+}
+
+
+/* Media queries */
+
+@media screen and (max-width: 967px) {
+  // Remove image in information section and set the grid to a single column
+  .information {
+    .card {
+      display: none; 
+    }
+
+    .grid {
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  // Logo text removal to allow full navbar
+  .logo-text {
+    display: none; 
+  }
+
+  // Reduce boards from 3 to 2 columns to prevent overflow
+  .board-section {
+    grid-template-columns: repeat(2, minmax(100px, 700px));
+    gap: clamp(10px, 20px, 30px);
+  }
+
+  // Change information modal from 2 to 1 column
+  .modal {
+    .pigment {
+      display: block;
+    }
+  }
+}
+
+
+// Move navbar to bottom of the screen on small devices and reduce white space
 @media only screen and (max-width: 600px) {
   .navbar {
     bottom: 0;
@@ -300,7 +402,8 @@ sup {
   }
 
   .main {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 6rem;
   }
 
   .container {
@@ -309,6 +412,23 @@ sup {
 
   .information {
     margin-bottom: 50px;
+  }
+  
+  .modal {
+    .pigment {
+      overflow-y: auto;
+      top: 10px;
+      bottom: 100px;
+      padding: clamp(5px, 15px, 50px);
+      
+      table {
+        margin-bottom: 30px;
+      }
+
+      .close-button {
+        top: 25px;
+      }
+    }
   }
 
   .summary {
@@ -330,7 +450,18 @@ sup {
     }
   }
 
-  .board-section {
-    grid-template-columns: repeat(2, minmax(200px, 700px));
+  .pigment-hover {
+    &:before {
+      box-shadow: unset;
+      transition: unset;
+    }
+
+    &:hover {
+      transform: unset;
+
+      &:before {
+        opacity: 0;
+      }
+    }
   }
 }
