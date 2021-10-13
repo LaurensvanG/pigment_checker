@@ -1,4 +1,4 @@
-// General
+/* General */
 * {
   margin: 0px;
   padding: 0px;
@@ -10,7 +10,7 @@
   --font-family: 'Open Sans', sans-serif;
   font-family: var(--font-family);
 
-  // Navba/ colours
+  // Navbar colours
   --text-nav-primary: #b6b6b6;
   --text-nav-secondary: #ececec;
   --bg-nav-primary: #23232e;
@@ -18,7 +18,7 @@
   --scrollbar-track-color: #1e1e24;
   --transition-speed: 600ms;
 
-  // Personal them/ colours
+  // Personal theme colours
   --blue: #012e73;
   --yellow: #fcb702;
   --light-blue: #69a6c4;
@@ -26,9 +26,8 @@
   --green: #007e52;
   --brown: #a53915;
 
-  // Car/ colours
+  // Card colours
   --card-color-background: #f9f9f9;
-  --card-color-text: #333;
 
   // Material shadows
   --shadow-key-umbra-opacity: 0.20;
@@ -47,8 +46,8 @@ body {
   margin: 0px;
   display: flex;
   flex-direction: column;
-  --calc-width: auto;
   gap: 0;
+  --calc-width: auto;
 }
 
 ::-webkit-scrollbar {
@@ -69,12 +68,13 @@ img {
   max-height: 100%;
 }
 
+// Container to make sure the content does not stretch too much on a large screen
 .container {
   width: clamp(200px, 1200px, 90%);
   margin: 0 auto;
 }
 
-// Navbar
+/* Navbar */
 .navbar {
   position: fixed;
   display: flex;
@@ -93,7 +93,7 @@ img {
 
 .navbar-nav {
   display: flex;
-  flex-wrap: no-wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -195,7 +195,7 @@ img {
   transition: width var(--transition-speed);
 }
 
-// Shadows
+/* Shadows */
 .focus-shadow {
   box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
 }
@@ -242,7 +242,7 @@ img {
               0 24px 38px  3px rgba(0, 0, 0, var(--shadow-key-umbra-opacity));
 }
 
-// Margins 
+/* Margins */
 .my-1 {
   margin: 1rem 0;
 }

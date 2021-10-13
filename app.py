@@ -1,12 +1,10 @@
 from re import A
 import sqlite3
-from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, redirect, g
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pigments.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+# Information about the different coloured boards  to be used on pages
 BOARDS = dict(
         bw = dict (
             img = "black.png",
@@ -46,6 +44,7 @@ BOARDS = dict(
         )
     )
 
+# Constant with the columns in the database
 COLUMNS = [
         "id",
         "PCID",
@@ -79,30 +78,28 @@ COLUMNS = [
 
 DATABASE = "pigments.db"
 
-# db = SQLAlchemy(app)
-# db.create_all()
-
+# Add the BOARDS constant to all pages as it is used for the navbar
 @app.context_processor
-def create_menu():
-
+def add_boards():
     return dict(BOARDS=BOARDS)
-
 
 
 @app.route("/", methods=["GET"])
 def index():
-
     return render_template("index.html")
 
 
 @app.route("/board/<colour>", methods=["GET"])
 def board(colour):
     """
-    Retreive the data for the selected colour from the DB
+    Retrieve the data for the selected colour from the DB and render the 
+        template for the selected colour using the data
     """
 
+    # Select relevant columns to put into the table
     TABLE_COLUMNS = COLUMNS[8:-1]
 
+    # Get colour data from the database
     colours = select_colour_data(colour)
 
     return render_template("board.html", colours=colours, table_columns=TABLE_COLUMNS)
@@ -111,7 +108,6 @@ def board(colour):
 # If there is no color specified, redirect to index
 @app.route("/board", methods=["GET"])
 def board_only():
-
     return redirect("/")
 
 
@@ -119,7 +115,12 @@ def board_only():
 # Helper functions
 
 # Database management adapted from https://stackoverflow.com/a/16601526
-def get_request_connection():
+def request_connection():
+    """
+    Request a connection to the database
+    """
+
+    # If there is no connection in the global ("g") variable, try to establish it
     if not hasattr(g, "conn"):
         g.conn = None
         try:
@@ -131,13 +132,22 @@ def get_request_connection():
 
 @app.teardown_request
 def close_db_connection(ex):
-    conn = get_request_connection()
+    """
+    Close the database connection
+    """
+
+    # Get the current connection
+    conn = request_connection()
     conn.close()
 
 
 def select_colour_data(colour):
-    
+    """
+    Get the colour data from the database given the supplied colour name
+    """
 
+    # If the colour is "bw", get the black and white colours, otherwise get the 
+    # supplied colour
     if colour == "bw":
         colours = ["black", "white"]
     else:
@@ -147,14 +157,16 @@ def select_colour_data(colour):
     data = {}
 
     for col in colours:
-        conn = get_request_connection()
+        # Get all the information for the selected colour from the database
+        conn = request_connection()
         cur = conn.cursor()
         cur.execute("SELECT * FROM Pigments WHERE colour=?", (col,))
 
-        colour_data = []
-
         rows = cur.fetchall()
+
+        colour_data = []
         for row in rows:
+            # Pair the data with the column names in a dictionary
             colour_data.append(dict(zip(COLUMNS, row)))
             
             # Reformat the alias field
@@ -168,6 +180,7 @@ def select_colour_data(colour):
                 alias = alias["-5"]
                 colour_data[-1]["Alias"] = alias
         
+        # Add the colour data for the current colour
         data[col] = colour_data
 
     return data

@@ -13,7 +13,6 @@ sup {
 
 /* Elements */
 .main {
-  // height: 100vh;
   margin-top: 5rem;
 }
 
@@ -26,10 +25,6 @@ sup {
   align-items: center;
   padding: 10px;
   margin: auto;
-}
-
-.large-grid {
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 .card {  
@@ -57,27 +52,27 @@ sup {
   .card {
     position: relative;
     top: 80px;
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1 / 1;
-    overflow: visible;
+    overflow: visible; // Make the image go over the banner
     background-image: url("/static/muller.jpg");
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
     border-radius: 15px;
   }
-}
-  
-.banner {
+
   p { 
     font-size: 1.1rem;
     line-height: 2rem;
     margin-bottom: 1em;
   }
-
+  
   h1 {
     margin: 8% 0;
   }
-
+  
   :last-child {
     margin-bottom: 8%;
   }
@@ -179,6 +174,8 @@ sup {
 }
 
 /* Pigment pages */
+
+// Align squares to bottom to align regardless of title size
 .pigment-section {
   .grid {
     align-items: end;
@@ -196,16 +193,13 @@ sup {
     justify-content: center;
   }
 
-  .pigment-information {
-    display: none;
-  }
-
-  .close-button {
+  // Information in the modal is hidden by default
+  .pigment-information, .close-button {
     display: none;
   }
 }
 
-
+// Cut off long manufacturer information
 .ellipsis-manufacturer > p {
   white-space: nowrap;
   overflow: hidden;
@@ -294,18 +288,23 @@ sup {
       transition: transform calc(var(--transition-speed) / 2);
 
       top: 100px;
-      /* Make sure the button is always on the right of the modal
+      /* Make sure the  close button is always on the right of the modal
       calculate: margin width:          100vw - size of modal
                  left margin width:     / 2 
                                         + size of the modal 
-                                        - 50px */
-      left: calc((100vw - clamp(200px, 1200px, 90%)) / 2 + clamp(200px, 1200px, 90%) - 30px);
+                                        - offset */
+      left: calc(
+        (100vw - clamp(200px, 1200px, 90%)) 
+        / 2 
+        + clamp(200px, 1200px, 90%) 
+        - 30px);
 
       &:hover {
-        transform:  scale(1.1) rotate(90deg);
+        transform: scale(1.1) rotate(90deg);
       }
     }
 
+    // Show the additional information
     .pigment-information {
       display: block;
 
@@ -313,6 +312,7 @@ sup {
         border-collapse: collapse;
       }
 
+      // Change background of every other row for clearer separation
       tr:nth-child(odd) {
         background-color: #eee;
       }
@@ -320,7 +320,6 @@ sup {
       td {
         padding: 3px 5px;
       }
-
 
       .alias {
         font-weight: bold;
@@ -335,11 +334,11 @@ sup {
 
 /* Media queries */
 
-
 @media screen and (max-width: 967px) {
+  // Remove image in information section and set the grid to a single column
   .information {
     .card {
-    display: none; // Remove image in information section
+      display: none; 
     }
 
     .grid {
@@ -369,8 +368,7 @@ sup {
 }
 
 
-// Move navbar to bottom of the screen on 
-// small devices
+// Move navbar to bottom of the screen on small devices and reduce white space
 @media only screen and (max-width: 600px) {
   .navbar {
     bottom: 0;
