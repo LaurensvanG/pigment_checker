@@ -1,5 +1,4 @@
 from datetime import datetime
-from re import A
 import sqlite3
 from flask import Flask, render_template, redirect, g
 
