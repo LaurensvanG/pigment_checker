@@ -1,5 +1,5 @@
-from datetime import datetime
 import sqlite3
+from datetime import datetime
 from flask import Flask, render_template, redirect, g
 
 app = Flask(__name__)
