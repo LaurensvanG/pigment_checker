@@ -123,6 +123,7 @@ main {
 .board {
   overflow: hidden;
   border-radius: 10px;
+  background-color: #ececec;
   transition: transform var(--transition-speed);
   
   img {
