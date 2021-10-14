@@ -12,7 +12,7 @@ sup {
 }
 
 /* Elements */
-.main {
+main {
   margin-top: 5rem;
 }
 
@@ -113,7 +113,6 @@ sup {
 // Boards
 .board-section {
   align-items: unset;
-  padding: 0 0 5rem 0;
   grid-template-columns: repeat(3, minmax(150px, 700px));
 
   &:hover .overlay-text {
@@ -124,6 +123,7 @@ sup {
 .board {
   overflow: hidden;
   border-radius: 10px;
+  background-color: #ececec;
   transition: transform var(--transition-speed);
   
   img {
@@ -401,9 +401,13 @@ sup {
     }
   }
 
-  .main {
+  main {
     margin-top: 0;
     margin-bottom: 6rem;
+  }
+
+  .content {
+    margin-bottom: 0;
   }
 
   .container {
